@@ -38,6 +38,7 @@ void DArray::Print() const
 	for(int i=0;i!=m_nSize;++i){
 		std::cout<<" "<<m_pData[i];
 	}
+	std::cout << std::endl;
 }
 
 // initilize the array
@@ -67,6 +68,9 @@ int DArray::GetSize() const
 void DArray::SetSize(int nSize)
 {
 	Free();
+	auto pNewData = new double[nSize]();// initialize to 0
+	m_pData = pNewData;
+	m_nSize = nSize;
 }
 
 // get an element at an index
@@ -109,6 +113,7 @@ void DArray::PushBack(double dValue)
 	pNewData[m_nSize] = dValue;
 	Free();
 	m_pData = pNewData;
+	++m_nSize;
 }
 
 // delete an element at some index
@@ -121,34 +126,36 @@ void DArray::DeleteAt(int nIndex)
 	auto pNewData = new double[m_nSize - 1];
 	for (int i = 0; i != nIndex; ++i)
 		pNewData[i] = m_pData[i];
-	for (int i = nIndex + 1; i < m_nSize; i++)
+	for (int i = nIndex + 1; i < m_nSize; ++i)
 	{
 		pNewData[i - 1] = m_pData[i];
 	}
 	Free();
 	m_pData = pNewData;
+	--m_nSize;
 }
 
 // insert a new element at some index
 void DArray::InsertAt(int nIndex, double dValue)
 {
-	if (nIndex < 0 || nIndex >= m_nSize)
+	if (nIndex < 0 || nIndex > m_nSize)
 	{
 		std::cerr << "out of range!" << std::endl;
 		return;
 	}
 	auto pNewData = new double[m_nSize + 1];
-	for (int i = 0; i < nIndex; ++i)// the half before nIndex
+	for (int i = 0; i < nIndex; ++i)//copy the half before nIndex
 	{
 		pNewData[i] = m_pData[i];
 	}
 	pNewData[nIndex] = dValue;
-	for (int i = nIndex + 1; i <= m_nSize; ++i)// the half behine nIndex
+	for (int i = nIndex + 1; i <= m_nSize; ++i)//copy the half behine nIndex
 	{
 		pNewData[i] = m_pData[i - 1];
 	}
 	Free();
 	m_pData=pNewData;
+	++m_nSize;
 }
 
 // overload operator '='
