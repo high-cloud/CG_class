@@ -30,7 +30,7 @@ public:
 private:
 	double* m_pData; // the pointer to the array memory
 	int m_nSize; // the size of the array
-	int m_nMax;
+	int m_nMax;// the size of memory
 
 private:
 	void Init(); // initilize the array
