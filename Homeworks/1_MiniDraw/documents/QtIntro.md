@@ -52,7 +52,18 @@ Qt 抽象出众多类的共同特性，设计出一些基类作为实现其他�
 
 ## Hello World
 
-项目：[example](example/) 
+用 CMake 三连（configure + generate + open project）跑跑示例项目 [example](example/)，简单看看代码，运行程序看看效果
 
-直接查看项目代码即可，源码十分简单，hello world 级别
+然后查看教程  [QtHello](QtHello.md) 学会
+
+- 创建 Qt + CMake 项目
+- 添加菜单，工具栏，动作
+- 信号槽机制
+
+然后查看教程 [Qt GDI](QtGDI.md) 学会
+
+- 定制 `QtWidget` 实现绘制功能
+- 内存泄漏检测
+- `std::vector` 的使用
+- 继承与多态
 
