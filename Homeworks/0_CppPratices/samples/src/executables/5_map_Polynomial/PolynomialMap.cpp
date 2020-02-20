@@ -1,4 +1,4 @@
-#include "PolynomialMap.h"
+-#include "PolynomialMap.h"
 
 #include <iostream>
 #include <fstream>
