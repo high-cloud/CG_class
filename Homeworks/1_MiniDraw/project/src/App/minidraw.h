@@ -20,6 +20,9 @@ public:
 	QAction *Action_About;
 	QAction *Action_Line;
 	QAction *Action_Rect;
+	QAction* Action_Ellip;
+	QAction* Action_Poly;
+	QAction* Action_Free;
 
 	void Creat_Menu();
 	void Creat_ToolBar();

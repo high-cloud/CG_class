@@ -6,6 +6,7 @@
 #include "shape.h"
 #include "Line.h"
 #include "Rect.h"
+#include "Ellipse.h"
 
 #include <qevent.h>
 #include <qpainter.h>
@@ -38,13 +39,17 @@ public:
 	void mouseMoveEvent(QMouseEvent* event);
 	void mouseReleaseEvent(QMouseEvent* event);
 
+
 public:
 	void paintEvent(QPaintEvent*);
 signals:
 public slots:
 	void setLine();
 	void setRect();
+	void setEllip();
+	void setPoly();
+	void setFree();
 
 };
 
-#endif // VIEWWIDGET_H
+# endif // VIEWWIDGET_H
